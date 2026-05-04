@@ -1,0 +1,14 @@
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\bin\Debug\net10.0\Programming.exe
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\bin\Debug\net10.0\Programming.deps.json
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\bin\Debug\net10.0\Programming.runtimeconfig.json
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\bin\Debug\net10.0\Programming.dll
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\bin\Debug\net10.0\Programming.pdb
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\Programming.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\Programming.AssemblyInfoInputs.cache
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\Programming.AssemblyInfo.cs
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\Programming.csproj.CoreCompileInputs.cache
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\Programming.dll
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\refint\Programming.dll
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\Programming.pdb
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\Programming.genruntimeconfig.cache
+C:\Users\sarik\OneDrive\Desktop\C#\Programming\Programming\obj\Debug\net10.0\ref\Programming.dll

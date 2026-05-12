@@ -1,87 +1,93 @@
-﻿List<string> yasaklikelimeler = new List<string>(5);
+List<string> bannedWords = new List<string>(5);
 for (int i = 0; i < 5; i++)
 {
-    Console.Write("5 Tane Yasaklı Kelime Yazınız :");
-    string kelime = (Console.ReadLine() ?? "").ToLower();
-    if (string.IsNullOrWhiteSpace(kelime))
+    Console.Write("Enter a banned word: ");
+    string word = (Console.ReadLine() ?? "").ToLower();
+    if (string.IsNullOrWhiteSpace(word))
     {
-        Console.WriteLine("Lütfen bir kelime giriniz...");
+        Console.WriteLine("Please enter a word...");
         i--;
         continue;
     }
     else
     {
-        yasaklikelimeler.Add(kelime);
-        Console.WriteLine("Kelime Eklendi...");
+        bannedWords.Add(word);
+        Console.WriteLine("Word added...");
     }
 }
-Console.WriteLine("Lütfen uzun bir paragraf giriniz;");
-string paragraf = Console.ReadLine() ?? "";
-if (string.IsNullOrEmpty(paragraf)) Console.WriteLine("Paragraf demiştik ama :(");
+
+Console.WriteLine("Please enter a long paragraph:");
+string paragraph = Console.ReadLine() ?? "";
+
+if (string.IsNullOrEmpty(paragraph)) 
+{
+    Console.WriteLine("We said a paragraph though :(");
+}
 else
 {
-    int guess;
-    string temizParagraf = VerileriTemizle(paragraf);
-    RiskAnalizi(temizParagraf, yasaklikelimeler);
-    Console.Write("Bir değer giriniz :");
-    if (int.TryParse(Console.ReadLine(), out guess))
-        MetniSifrele(temizParagraf, guess);
-    else Console.WriteLine("Bir değer giriniz...");
+    int shiftKey;
+    string cleanParagraph = CleanData(paragraph);
+    RiskAnalysis(cleanParagraph, bannedWords);
+    
+    Console.Write("Enter a shift value: ");
+    if (int.TryParse(Console.ReadLine(), out shiftKey))
+        EncryptText(cleanParagraph, shiftKey);
+    else 
+        Console.WriteLine("Please enter a valid value...");
 }
-// Verileri Temizle
-static string VerileriTemizle(string x)
+
+// Clean Data
+static string CleanData(string text)
 {
-    string temiz = "";
-    foreach (char item in x)
+    string clean = "";
+    foreach (char item in text)
     {
         if (char.IsLetter(item) || item == ' ')
         {
-            temiz += item;
+            clean += item;
         }
     }
-    return temiz;
-
+    return clean;
 }
-// RiskAnalizi
-static void RiskAnalizi(string y, List<string> liste)
+
+// Risk Analysis
+static void RiskAnalysis(string text, List<string> list)
 {
     int risk = 0;
-    string[] toplam_kelime = y.Split(' ');
-    foreach (string i in liste)
+    string[] totalWords = text.Split(' ');
+    foreach (string word in list)
     {
-        if (y.Contains(i))
+        if (text.Contains(word))
         {
-            Console.WriteLine($"Yasaklı Kelime Bulundu : {i}");
+            Console.WriteLine($"Banned Word Found: {word}");
             risk++;
-            if ((risk * 100) / toplam_kelime.Length > 20)
-                Console.WriteLine("Yüksek Risk...");
+            if ((risk * 100) / totalWords.Length > 20)
+                Console.WriteLine("High Risk...");
         }
     }
-
-    
 }
-// Metni Şifrele
-static void MetniSifrele(string metin, int anahtar)
+
+// Encrypt Text
+static void EncryptText(string text, int key)
 {
-    string bos = "";
-    char kaydirmali = ' ';
-    foreach (char item in metin)
+    string encryptedText = "";
+    char shiftedChar = ' ';
+    foreach (char item in text)
     {
         if (char.IsLetter(item) && char.IsUpper(item))
         {
-            kaydirmali = (char)(((int)item - 65 + anahtar) % 26 + 65);
-            bos += kaydirmali;
+            shiftedChar = (char)(((int)item - 65 + key) % 26 + 65);
+            encryptedText += shiftedChar;
         }
         else if (char.IsLower(item))
         {
-            kaydirmali = (char)(((int)item - 97 + anahtar) % 26 + 97);
-            bos += kaydirmali;
+            shiftedChar = (char)(((int)item - 97 + key) % 26 + 97);
+            encryptedText += shiftedChar;
         }
         else
         {
-            bos += item;
+            encryptedText += item;
         }
-
     }
-    Console.WriteLine(bos);
+    Console.WriteLine(encryptedText);
 }
